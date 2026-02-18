@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ye mankiya dewol (የማንቂያ ደወል) - Mehreteab Asefa</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>የማንቂያ ደወል</h1>
-                <p class="brand-sub">Ye mankiya dewol</p>
+                <h1>የማንቂያ ደወል <span>| Ye mankiya dewol</span></h1>
+                <p class="brand-sub">ምህረተአብ አሰፋ • Mehreteab Asefa</p>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="active">Home</a></li>
@@ -22,6 +24,9 @@
                 <li><a href="videos.html">Videos</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
@@ -29,14 +34,42 @@
     <header class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Ye mankiya dewol <span class="amharic">(የማንቂያ ደወል)</span></h1>
-                <h2>Mehreteab Asefa <span class="amharic">ምህረተአብ አሰፋ</span></h2>
-                <p class="hero-text">Promoting Ethiopian Orthodox Tewahdo Church values, teaching God's Word, and sharing Ethiopia's rich religious heritage, history, and tradition.</p>
+                <h1>
+                    <span class="amharic">የማንቂያ ደወል</span>
+                    Ye mankiya dewol
+                </h1>
+                <h2>
+                    <span class="amharic">ምህረተአብ አሰፋ</span>
+                    Mehreteab Asefa
+                </h2>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">474K+</span>
+                        <span class="stat-label">Subscribers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">565+</span>
+                        <span class="stat-label">Videos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2015</span>
+                        <span class="stat-label">Since</span>
+                    </div>
+                </div>
+
+                <p class="hero-text">
+                    Promoting Ethiopian Orthodox Tewahdo Church values, teaching God's Word,
+                    and sharing Ethiopia's rich religious heritage, history, and tradition.
+                </p>
+
                 <div class="hero-buttons">
-                    <a href="https://www.youtube.com/@MehreteabAsefa" target="_blank" class="btn btn-primary">
-                        <i class="fab fa-youtube"></i> Subscribe on YouTube
+                    <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-youtube"></i> Subscribe Now
                     </a>
-                    <a href="#featured-video" class="btn btn-secondary">Watch Latest Video</a>
+                    <a href="#featured-video" class="btn btn-secondary">
+                        <i class="fas fa-play"></i> Watch Latest
+                    </a>
                 </div>
             </div>
         </div>
@@ -45,52 +78,141 @@
     <!-- Mission Section -->
     <section class="mission">
         <div class="container">
-            <h2 class="section-title">Our Mission</h2>
-            <div class="mission-content">
-                <p>To teach God's Word, preserve Ethiopian Orthodox Tewahdo Church values, and share Ethiopia's rich religious heritage, history, and tradition with Ethiopians everywhere.</p>
+            <div class="mission-grid">
+                <div class="mission-content">
+                    <span class="section-subtitle">Our Purpose</span>
+                    <h2 class="section-title left-align">ማንቂያ ደወል<br>The Alarm Bell</h2>
+                    <p class="mission-text">
+                        "Ye mankiya dewol" (የማንቂያ ደወል) serves as a spiritual alarm bell,
+                        awakening and guiding the Ethiopian Orthodox Tewahdo community worldwide.
+                        Through the dedicated work of Memeher Mehreteab Asefa, we provide daily
+                        and weekly programs that bridge the communication gap for followers around the globe.
+                    </p>
+
+                    <div class="mission-stats">
+                        <div class="mission-stat">
+                            <h3>15+</h3>
+                            <p>Years of Service</p>
+                        </div>
+                        <div class="mission-stat">
+                            <h3>100+</h3>
+                            <p>Countries Reached</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-image">
+                    <i class="fas fa-church"></i>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Values -->
+    <!-- Values Section -->
     <section class="values">
         <div class="container">
-            <h2 class="section-title">Core Values</h2>
+            <div class="section-header">
+                <span class="section-subtitle">Our Foundation</span>
+                <h2 class="section-title">Core Values</h2>
+            </div>
+
             <div class="values-grid">
                 <div class="value-card">
-                    <i class="fas fa-book-open"></i>
-                    <h3>Truth</h3>
-                    <p>Committed to authentic teachings and accurate information</p>
+                    <div class="value-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Truth <span class="amharic">እውነት</span></h3>
+                    <p>Committed to authentic teachings and accurate information rooted in Orthodox tradition</p>
                 </div>
+
                 <div class="value-card">
-                    <i class="fas fa-church"></i>
-                    <h3>Faith</h3>
-                    <p>Deeply rooted in Ethiopian Orthodox Tewahdo traditions</p>
+                    <div class="value-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3>Faith <span class="amharic">እምነት</span></h3>
+                    <p>Deeply rooted in Ethiopian Orthodox Tewahdo traditions and teachings</p>
                 </div>
+
                 <div class="value-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Community</h3>
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community <span class="amharic">ማህበረሰብ</span></h3>
                     <p>Serving Ethiopians worldwide with daily and weekly programs</p>
                 </div>
+
                 <div class="value-card">
-                    <i class="fas fa-landmark"></i>
-                    <h3>Heritage</h3>
-                    <p>Preserving and promoting Ethiopia's religious legacy</p>
+                    <div class="value-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Heritage <span class="amharic">ቅርስ</span></h3>
+                    <p>Preserving and promoting Ethiopia's rich religious legacy</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Video -->
+    <!-- Featured Video Section -->
     <section id="featured-video" class="featured-video">
         <div class="container">
-            <h2 class="section-title">Latest Teaching</h2>
-            <div class="video-container">
-                <!-- Replace VIDEO_ID with actual YouTube video ID -->
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+            <div class="section-header">
+                <span class="section-subtitle">Watch & Learn</span>
+                <h2 class="section-title">Latest Teaching</h2>
+            </div>
+
+            <div class="video-showcase">
+                <div class="video-container">
+                    <!-- Replace VIDEO_ID with actual latest video ID -->
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+
+                <div class="video-info">
+                    <h3>የእግዚአብሔር ቃል • Word of God</h3>
+                    <p>Join Memeher Mehreteab Asefa in this enlightening teaching on Ethiopian Orthodox Tewahdo faith and tradition.</p>
+
+                    <div class="video-meta">
+                        <span><i class="fas fa-calendar"></i> New</span>
+                        <span><i class="fas fa-eye"></i> Weekly</span>
+                        <span><i class="fas fa-clock"></i> 45 min</span>
+                    </div>
+
+                    <a href="videos.html" class="btn btn-outline">
+                        <i class="fas fa-list"></i> View All Videos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section class="subscribe-section">
+        <div class="container">
+            <div class="subscribe-box">
+                <i class="fab fa-youtube"></i>
+                <h2>Join Our YouTube Family</h2>
+                <p>Be part of 474,500+ subscribers growing in faith and knowledge</p>
+
+                <div class="subscribe-stats">
+                    <div class="stat">
+                        <span class="number">565+</span>
+                        <span class="label">Videos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">100+</span>
+                        <span class="label">Countries</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">24/7</span>
+                        <span class="label">Available</span>
+                    </div>
+                </div>
+
+                <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-youtube"></i> Subscribe Now
+                </a>
             </div>
         </div>
     </section>
@@ -99,28 +221,49 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-section about">
                     <h3>Ye mankiya dewol</h3>
-                    <p>የማንቂያ ደወል</p>
+                    <p>የማንቂያ ደወል - Preserving and promoting Ethiopian Orthodox Tewahdo Church values, heritage, and tradition through the teachings of Mehreteab Asefa.</p>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@MehreteabAsefa" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
+
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="videos.html">Videos</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="videos.html"><i class="fas fa-chevron-right"></i> Videos</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-section">
-                    <h3>Connect</h3>
-                    <a href="https://www.youtube.com/@MehreteabAsefa" target="_blank" class="social-link">
-                        <i class="fab fa-youtube"></i> YouTube
-                    </a>
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Teachings</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> History</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Traditions</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Q&amp;A Sessions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Get notified about new videos</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2024 Ye mankiya dewol (የማንቂያ ደወል). All rights reserved.</p>
+                <p>&copy; 2024 Ye mankiya dewol (የማንቂያ ደወል). All rights reserved. | Presented by Mehreteab Asefa</p>
             </div>
         </div>
     </footer>
