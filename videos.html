@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videos - Ye mankiya dewol</title>
+    <title>Videos - Ye mankiya dewol (የማንቂያ ደወል) - Mehreteab Asefa</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Same navigation as index.html -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>የማንቂያ ደወል</h1>
-                <p class="brand-sub">Ye mankiya dewol</p>
+                <h1>የማንቂያ ደወል <span>| Ye mankiya dewol</span></h1>
+                <p class="brand-sub">ምህረተአብ አሰፋ • Mehreteab Asefa</p>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -21,48 +24,130 @@
                 <li><a href="videos.html" class="active">Videos</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header hero" style="padding: 120px 0 40px;">
+    <header class="page-header">
         <div class="container">
-            <h1>Video Teachings</h1>
-            <p>የቪዲዮ ትምህርቶች</p>
+            <h1>Video Teachings <span class="amharic">የቪዲዮ ትምህርቶች</span></h1>
+            <p>Browse our collection of 565+ videos</p>
         </div>
     </header>
 
     <!-- Video Categories -->
     <section class="video-categories">
         <div class="container">
-            <h2 class="section-title">Categories</h2>
+            <div class="section-header">
+                <span class="section-subtitle">Browse by Topic</span>
+                <h2 class="section-title">Video Categories</h2>
+            </div>
+
             <div class="categories-grid">
                 <div class="category-card">
-                    <i class="fas fa-book-open"></i>
+                    <div class="category-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
                     <h3>God's Word</h3>
-                    <p>የእግዚአብሔር ቃል</p>
+                    <span class="amharic">የእግዚአብሔር ቃል</span>
+                    <p>In-depth teachings on scripture and Orthodox doctrine</p>
+                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
                 </div>
+
                 <div class="category-card">
-                    <i class="fas fa-church"></i>
+                    <div class="category-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
                     <h3>Church Values</h3>
-                    <p>የቤተክርስቲያን እሴቶች</p>
+                    <span class="amharic">የቤተክርስቲያን እሴቶች</span>
+                    <p>Understanding Orthodox traditions and practices</p>
+                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
                 </div>
+
                 <div class="category-card">
-                    <i class="fas fa-landmark"></i>
+                    <div class="category-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
                     <h3>Heritage & History</h3>
-                    <p>ቅርስ እና ታሪክ</p>
+                    <span class="amharic">ቅርስ እና ታሪክ</span>
+                    <p>Exploring Ethiopia's rich religious history</p>
+                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
+                    <h3>Prayers & Worship</h3>
+                    <span class="amharic">ጸሎት እና አምልኮ</span>
+                    <p>Guided prayers and worship teachings</p>
+                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Q&A Sessions</h3>
+                    <span class="amharic">ጥያቄ እና መልስ</span>
+                    <p>Answers to common questions about faith</p>
+                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Holy Days</h3>
+                    <span class="amharic">ቅዱሳን ቀናት</span>
+                    <p>Teachings on Ethiopian Orthodox feasts and fasts</p>
+                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- YouTube Subscribe Button -->
+    <!-- Latest Videos Grid -->
+    <section style="background: var(--primary-light);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Recent Uploads</span>
+                <h2 class="section-title">Latest Videos</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                <!-- Video Card 1 -->
+                <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow);">
+                    <div style="position: relative; padding-bottom: 56.25%; background: #ddd;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary-red), var(--primary-dark));">
+                            <i class="fas fa-play" style="font-size: 3rem; color: var(--primary-gold);"></i>
+                        </div>
+                    </div>
+                    <div style="padding: 25px;">
+                        <h3 style="color: var(--primary-red); margin-bottom: 10px;">Sample Video Title</h3>
+                        <p style="margin-bottom: 15px; opacity: 0.8;">Teaching on Ethiopian Orthodox tradition...</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span><i class="fas fa-eye" style="color: var(--primary-gold);"></i> 10K views</span>
+                            <span><i class="fas fa-calendar" style="color: var(--primary-gold);"></i> 2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more video cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe CTA -->
     <section class="subscribe-section">
         <div class="container">
             <div class="subscribe-box">
-                <i class="fab fa-youtube" style="font-size: 3rem; color: #FF0000;"></i>
-                <h2>Subscribe to Our YouTube Channel</h2>
-                <p>Join 474,500+ subscribers watching Mehreteab Asefa's teachings</p>
+                <i class="fab fa-youtube"></i>
+                <h2>Subscribe for New Teachings</h2>
+                <p>Get notified when new videos are uploaded</p>
                 <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="btn btn-primary">
                     <i class="fab fa-youtube"></i> Subscribe Now
                 </a>
@@ -72,7 +157,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <!-- Same footer as index.html -->
+        <!-- Same footer as other pages -->
     </footer>
 </body>
 </html>
