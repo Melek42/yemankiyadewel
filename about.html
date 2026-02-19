@@ -3,14 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Ye mankiya dewol (የማንቂያ ደወል)</title>
+    <title>About - Ye mankiya dewol (የማንቂያ ደወል) - Mehreteab Asefa</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛪</text></svg>">
 </head>
 <body>
-    <!-- Navigation (same as index.html) -->
-    <nav class="navbar">
+    <!-- Loading Screen -->
+    <div id="loading-screen" style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--primary-color); z-index:9999; display:flex; justify-content:center; align-items:center; transition:opacity 0.5s;">
+        <div style="text-align:center; color:white;">
+            <div style="font-size:3rem; margin-bottom:1rem;">⛪</div>
+            <div style="width:50px; height:50px; border:5px solid rgba(255,255,255,0.3); border-top-color:white; border-radius:50%; margin:0 auto; animation:spin 1s infinite;"></div>
+            <p style="margin-top:1rem;">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <i class="fas fa-check-circle"></i>
+        <div>
+            <strong id="toast-title">Welcome!</strong>
+            <p id="toast-message">About Mehreteab Asefa</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html">
@@ -18,111 +38,472 @@
                     <p class="brand-sub">Ye mankiya dewol</p>
                 </a>
             </div>
+
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
+
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="videos.html">Videos</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li class="mobile-only">
+                    <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="nav-subscribe">
+                        <i class="fab fa-youtube"></i> Subscribe
+                    </a>
+                </li>
             </ul>
-            <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="btn-subscribe desktop-only">
-                <i class="fab fa-youtube"></i> Subscribe
-            </a>
+
+            <div class="nav-actions">
+                <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="btn-subscribe desktop-only">
+                    <i class="fab fa-youtube"></i> Subscribe
+                    <span class="sub-count">474K</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Page Header with Parallax -->
+    <section class="page-header" id="pageHeader">
+        <div class="parallax-bg"></div>
         <div class="container">
-            <h1>About Mehreteab Asefa</h1>
-            <p class="amharic">ስለ ምህረተአብ አሰፋ</p>
+            <div class="header-content" data-aos="fade-up">
+                <div class="header-badge">
+                    <span class="badge">
+                        <i class="fas fa-user-tie"></i> Founder & Teacher
+                    </span>
+                </div>
+                <h1>About Mehreteab Asefa</h1>
+                <p class="amharic">ስለ ምህረተአብ አሰፋ</p>
+                <div class="header-stats">
+                    <div class="stat">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Years Ministry</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">565+</span>
+                        <span class="stat-label">Teachings</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">474K+</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToNext()">
+            <div class="mouse"><div class="wheel"></div></div>
         </div>
     </section>
 
-    <!-- Biography Section -->
-    <section class="biography">
+    <!-- Biography Section with Floating Elements -->
+    <section class="biography" id="biography">
         <div class="container">
             <div class="bio-grid">
-                <div class="bio-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-user-tie"></i>
+                <div class="bio-image" data-aos="fade-right">
+                    <div class="image-frame">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="experience-badge">
+                            <span class="years">10+</span>
+                            <span class="text">Years of<br>Teaching</span>
+                        </div>
+                    </div>
+                    <div class="image-social">
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
-                <div class="bio-content">
+                
+                <div class="bio-content" data-aos="fade-left">
+                    <div class="bio-tag">
+                        <span class="tagline">መምህር · Teacher</span>
+                    </div>
                     <h2>Memeher Mehreteab Asefa</h2>
                     <p class="bio-title">Founder & Teacher at Ye mankiya dewol</p>
+                    
                     <div class="bio-text">
                         <p>Memeher Mehreteab Asefa is dedicated to promoting Ethiopian Orthodox Tewahdo Church values globally. Through "Ye mankiya dewol" (የማንቂያ ደወል), he provides essential information to bridge the communication gap for Ethiopian Orthodox Tewahdo Church followers worldwide.</p>
                         <p>With over 565 videos and a growing community of 474,000+ subscribers, his teachings reach Ethiopians across the globe, helping them stay connected to their faith, heritage, and traditions.</p>
                     </div>
+
+                    <div class="bio-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <blockquote>
+                            Our mission is to ensure every Ethiopian, no matter where they are, can stay connected to our ancient faith and rich traditions.
+                        </blockquote>
+                    </div>
+
+                    <div class="bio-achievements">
+                        <div class="achievement">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <strong>Religious Scholar</strong>
+                                <span>Orthodox Tewahdo Theology</span>
+                            </div>
+                        </div>
+                        <div class="achievement">
+                            <i class="fas fa-globe-africa"></i>
+                            <div>
+                                <strong>Global Teacher</strong>
+                                <span>Reaching 150+ countries</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission & Vision -->
+    <!-- Mission & Vision with Cards -->
     <section class="mission-vision">
         <div class="container">
             <div class="mv-grid">
-                <div class="mv-card mission-card">
-                    <i class="fas fa-bullseye"></i>
+                <div class="mv-card mission-card" data-aos="flip-left">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
                     <h3>Our Mission</h3>
                     <p>To teach God's Word, preserve Ethiopian Orthodox Tewahdo Church values, and share Ethiopia's rich religious heritage, history, and tradition with Ethiopians everywhere.</p>
+                    <div class="card-footer">
+                        <span class="verse">Matthew 28:19-20</span>
+                    </div>
                 </div>
-                <div class="mv-card vision-card">
-                    <i class="fas fa-eye"></i>
+
+                <div class="mv-card vision-card" data-aos="flip-right">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
                     <h3>Our Vision</h3>
                     <p>To create a globally connected Ethiopian Orthodox community, deeply rooted in faith and aware of their rich spiritual heritage.</p>
+                    <div class="card-footer">
+                        <span class="verse">Isaiah 2:3</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Journey Timeline -->
+    <!-- Journey Timeline with Progress -->
     <section class="timeline">
         <div class="container">
-            <h2 class="section-title">Our Journey</h2>
-            <div class="timeline-grid">
-                <div class="timeline-item">
-                    <div class="timeline-year">2020</div>
-                    <div class="timeline-content">
-                        <h3>Channel Founded</h3>
-                        <p>Ye mankiya dewol (የማንቂያ ደወል) was established to share Orthodox teachings.</p>
+            <h2 class="section-title" data-aos="fade-up">Our Journey</h2>
+            <div class="timeline-container">
+                <div class="timeline-grid">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-year">
+                            <span>2020</span>
+                            <div class="year-progress" style="--progress: 100%"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Channel Founded</h3>
+                            <p>Ye mankiya dewol (የማንቂያ ደወል) was established to share Orthodox teachings with the world.</p>
+                            <div class="timeline-stats">
+                                <span><i class="fas fa-video"></i> First video</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2022</div>
-                    <div class="timeline-content">
-                        <h3>100K Subscribers</h3>
-                        <p>The channel reached 100,000 subscribers, showing the growing need for Orthodox content.</p>
+
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-year">
+                            <span>2022</span>
+                            <div class="year-progress" style="--progress: 100%"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>100K Subscribers</h3>
+                            <p>The channel reached 100,000 subscribers, showing the growing need for Orthodox content.</p>
+                            <div class="timeline-stats">
+                                <span><i class="fas fa-trophy"></i> Milestone achieved</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2024</div>
-                    <div class="timeline-content">
-                        <h3>474K+ Strong</h3>
-                        <p>Today, we continue to grow, serving hundreds of thousands with daily teachings.</p>
+
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-year">
+                            <span>2023</span>
+                            <div class="year-progress" style="--progress: 100%"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>300K+ Community</h3>
+                            <p>Rapid growth as more Ethiopians worldwide discovered the channel.</p>
+                            <div class="timeline-stats">
+                                <span><i class="fas fa-globe"></i> Global reach</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-year">
+                            <span>2024</span>
+                            <div class="year-progress" style="--progress: 75%"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>474K+ Strong</h3>
+                            <p>Today, we continue to grow, serving hundreds of thousands with daily teachings.</p>
+                            <div class="timeline-stats">
+                                <span><i class="fas fa-chart-line"></i> 500K next target</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer (same as index.html) -->
+    <!-- Stats Counter Section -->
+    <section class="stats-counter">
+        <div class="container">
+            <div class="counter-grid">
+                <div class="counter-item" data-aos="zoom-in">
+                    <i class="fas fa-video"></i>
+                    <span class="counter-number" data-target="565">0</span>
+                    <span class="counter-label">Total Videos</span>
+                </div>
+                <div class="counter-item" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-users"></i>
+                    <span class="counter-number" data-target="474">0</span>
+                    <span class="counter-label">Subscribers (K)</span>
+                </div>
+                <div class="counter-item" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-clock"></i>
+                    <span class="counter-number" data-target="8760">0</span>
+                    <span class="counter-label">Hours of Content</span>
+                </div>
+                <div class="counter-item" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-globe"></i>
+                    <span class="counter-number" data-target="150">0</span>
+                    <span class="counter-label">Countries</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">What People Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-right">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Memeher Mehreteab Asefa's teachings have deepened my understanding of our Orthodox faith. His dedication is inspiring."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">📿</div>
+                            <div>
+                                <h4>Abeba Tesfaye</h4>
+                                <span>Addis Ababa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Living abroad, this channel keeps me connected to our church and traditions. A true blessing for the diaspora."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">🌍</div>
+                            <div>
+                                <h4>Samuel Hailu</h4>
+                                <span>USA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-left">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"The historical teachings have opened my eyes to Ethiopia's incredible Orthodox legacy. Truly inspiring content."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">📚</div>
+                            <div>
+                                <h4>Meron Assefa</h4>
+                                <span>UK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer (Enhanced) -->
     <footer class="footer">
-        <!-- Copy footer from index.html -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ye mankiya dewol</h3>
+                    <p class="footer-amharic">የማንቂያ ደወል</p>
+                    <p class="footer-desc">Promoting Ethiopian Orthodox Tewahdo values and heritage through the voice of Mehreteab Asefa.</p>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@MehreteabAsefa" target="_blank" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" class="social-link telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Daily Readings</a></li>
+                        <li><a href="#">Prayer Requests</a></li>
+                        <li><a href="#">Study Guides</a></li>
+                        <li><a href="#">Church Calendar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@yemankiyadewel.org">info@yemankiyadewel.org</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ye mankiya dewol (የማንቂያ ደወል). All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Hide Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loading-screen').style.display = 'none';
+                }, 500);
+            }, 1000);
+            showToast('Welcome!', 'About Mehreteab Asefa', 'success');
+        });
+
+        // Toast Notification
+        function showToast(title, message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.className = `toast-notification ${type}`;
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Mobile Menu
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
         mobileMenu.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             navMenu.classList.toggle('active');
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const icon = themeToggle.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        });
+
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll to next section
+        function scrollToNext() {
+            document.getElementById('biography').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Counter Animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Start counters when in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.counter-number').forEach(counter => {
+                        animateCounter(counter);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter-grid').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
     </script>
 </body>
