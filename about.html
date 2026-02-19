@@ -1,197 +1,129 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Ye mankiya dewol (የማንቂያ ደወል) - Mehreteab Asefa</title>
+    <title>About - Ye mankiya dewol (የማንቂያ ደወል)</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation (same as index.html) -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>የማንቂያ ደወል <span>| Ye mankiya dewol</span></h1>
-                <p class="brand-sub">ምህረተአብ አሰፋ • Mehreteab Asefa</p>
+                <a href="index.html">
+                    <h1>የማንቂያ ደወል</h1>
+                    <p class="brand-sub">Ye mankiya dewol</p>
+                </a>
             </div>
-            <ul class="nav-menu">
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="videos.html">Videos</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
+            <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="btn-subscribe desktop-only">
+                <i class="fab fa-youtube"></i> Subscribe
+            </a>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header">
+    <section class="page-header">
         <div class="container">
-            <h1>About <span class="amharic">ስለ እኛ</span></h1>
-            <p>Memeher Mehreteab Asefa • መምህር ምህረተአብ አሰፋ</p>
+            <h1>About Mehreteab Asefa</h1>
+            <p class="amharic">ስለ ምህረተአብ አሰፋ</p>
         </div>
-    </header>
+    </section>
 
     <!-- Biography Section -->
-    <section class="bio-section">
+    <section class="biography">
         <div class="container">
             <div class="bio-grid">
                 <div class="bio-image">
-                    <!-- Placeholder for Mehreteab Asefa's photo -->
-                    <div style="background: linear-gradient(135deg, var(--primary-red), var(--primary-dark)); height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 20px;">
-                        <i class="fas fa-user-circle" style="font-size: 150px; color: var(--primary-gold); opacity: 0.5;"></i>
+                    <div class="image-placeholder">
+                        <i class="fas fa-user-tie"></i>
                     </div>
                 </div>
-
                 <div class="bio-content">
                     <h2>Memeher Mehreteab Asefa</h2>
-                    <h3 class="amharic">መምህር ምህረተአብ አሰፋ</h3>
-
-                    <p>Memeher Mehreteab Asefa is a dedicated teacher and promoter of Ethiopian Orthodox Tewahdo Church values. Through his channel "Ye mankiya dewol" (የማንቂያ ደወል), he has been serving the global Ethiopian Orthodox community for over 15 years.</p>
-
-                    <p>His work focuses on teaching God's Word, preserving Ethiopian Orthodox Tewahdo Church traditions, and sharing Ethiopia's rich religious heritage with Ethiopians worldwide. His daily and weekly programs bridge the communication gap for followers around the globe.</p>
-
-                    <div class="bio-quote">
-                        <i class="fas fa-quote-right"></i>
-                        <p>"የማንቂያ ደወል ማለት ለህዝበ ክርስቲያን የሚደረግ አገልግሎት ሲሆን ትክክለኛውን የሃይማኖት ትምህርት ለማድረስ ያግዛል"</p>
-                        <cite>— Mehreteab Asefa</cite>
+                    <p class="bio-title">Founder & Teacher at Ye mankiya dewol</p>
+                    <div class="bio-text">
+                        <p>Memeher Mehreteab Asefa is dedicated to promoting Ethiopian Orthodox Tewahdo Church values globally. Through "Ye mankiya dewol" (የማንቂያ ደወል), he provides essential information to bridge the communication gap for Ethiopian Orthodox Tewahdo Church followers worldwide.</p>
+                        <p>With over 565 videos and a growing community of 474,000+ subscribers, his teachings reach Ethiopians across the globe, helping them stay connected to their faith, heritage, and traditions.</p>
                     </div>
-
-                    <p>With over 474,000 subscribers and 565+ videos, his channel has become a vital resource for Ethiopians seeking authentic religious education and cultural connection, no matter where they are in the world.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission & Vision Section -->
-    <section class="mission" style="background: var(--primary-light);">
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Our Purpose</span>
-                <h2 class="section-title">Mission & Vision</h2>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
-                <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: var(--shadow);">
-                    <i class="fas fa-bullseye" style="font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 20px;"></i>
-                    <h3 style="color: var(--primary-red); margin-bottom: 15px;">Our Mission</h3>
+            <div class="mv-grid">
+                <div class="mv-card mission-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
                     <p>To teach God's Word, preserve Ethiopian Orthodox Tewahdo Church values, and share Ethiopia's rich religious heritage, history, and tradition with Ethiopians everywhere.</p>
                 </div>
-
-                <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: var(--shadow);">
-                    <i class="fas fa-eye" style="font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 20px;"></i>
-                    <h3 style="color: var(--primary-red); margin-bottom: 15px;">Our Vision</h3>
-                    <p>To be the leading digital platform for Ethiopian Orthodox Tewahdo teachings, connecting the global Ethiopian diaspora with their faith, culture, and heritage.</p>
+                <div class="mv-card vision-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To create a globally connected Ethiopian Orthodox community, deeply rooted in faith and aware of their rich spiritual heritage.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Journey Timeline -->
-    <section class="timeline-section">
+    <section class="timeline">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Our Journey</span>
-                <h2 class="section-title">Timeline</h2>
-            </div>
-
-            <div style="max-width: 800px; margin: 60px auto 0;">
-                <div style="position: relative; padding-left: 50px;">
-                    <!-- Timeline line -->
-                    <div style="position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--primary-gold), var(--primary-red));"></div>
-
-                    <!-- Timeline items -->
-                    <div style="margin-bottom: 50px; position: relative;">
-                        <div style="position: absolute; left: -38px; top: 0; width: 20px; height: 20px; background: var(--primary-gold); border-radius: 50%; border: 3px solid white; box-shadow: var(--shadow);"></div>
-                        <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: var(--shadow);">
-                            <h3 style="color: var(--primary-red); margin-bottom: 10px;">2015</h3>
-                            <p>YouTube channel "Ye mankiya dewol" officially launched</p>
-                        </div>
+            <h2 class="section-title">Our Journey</h2>
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h3>Channel Founded</h3>
+                        <p>Ye mankiya dewol (የማንቂያ ደወል) was established to share Orthodox teachings.</p>
                     </div>
-
-                    <div style="margin-bottom: 50px; position: relative;">
-                        <div style="position: absolute; left: -38px; top: 0; width: 20px; height: 20px; background: var(--primary-gold); border-radius: 50%; border: 3px solid white; box-shadow: var(--shadow);"></div>
-                        <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: var(--shadow);">
-                            <h3 style="color: var(--primary-red); margin-bottom: 10px;">2018</h3>
-                            <p>Reached 100,000 subscribers milestone</p>
-                        </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>100K Subscribers</h3>
+                        <p>The channel reached 100,000 subscribers, showing the growing need for Orthodox content.</p>
                     </div>
-
-                    <div style="margin-bottom: 50px; position: relative;">
-                        <div style="position: absolute; left: -38px; top: 0; width: 20px; height: 20px; background: var(--primary-gold); border-radius: 50%; border: 3px solid white; box-shadow: var(--shadow);"></div>
-                        <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: var(--shadow);">
-                            <h3 style="color: var(--primary-red); margin-bottom: 10px;">2021</h3>
-                            <p>Started daily teaching programs for global audience</p>
-                        </div>
-                    </div>
-
-                    <div style="position: relative;">
-                        <div style="position: absolute; left: -38px; top: 0; width: 20px; height: 20px; background: var(--primary-gold); border-radius: 50%; border: 3px solid white; box-shadow: var(--shadow);"></div>
-                        <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: var(--shadow);">
-                            <h3 style="color: var(--primary-red); margin-bottom: 10px;">2024</h3>
-                            <p>474,000+ subscribers, 565+ videos, serving Ethiopians worldwide</p>
-                        </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>474K+ Strong</h3>
+                        <p>Today, we continue to grow, serving hundreds of thousands with daily teachings.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (same as index.html) -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section about">
-                    <h3>Ye mankiya dewol</h3>
-                    <p>የማንቂያ ደወል - Preserving and promoting Ethiopian Orthodox Tewahdo Church values, heritage, and tradition through the teachings of Mehreteab Asefa.</p>
-                    <div class="social-links">
-                        <a href="https://www.youtube.com/@MehreteabAsefa" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
-                        <li><a href="videos.html"><i class="fas fa-chevron-right"></i> Videos</a></li>
-                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Categories</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Teachings</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> History</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Traditions</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Q&amp;A Sessions</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Newsletter</h3>
-                    <p>Get notified about new videos</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2024 Ye mankiya dewol (የማንቂያ ደወል). All rights reserved. | Presented by Mehreteab Asefa</p>
-            </div>
-        </div>
+        <!-- Copy footer from index.html -->
     </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
