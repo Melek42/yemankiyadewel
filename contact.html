@@ -1,227 +1,432 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Ye mankiya dewol (የማንቂያ ደወል) - Mehreteab Asefa</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛪</text></svg>">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--primary-color); z-index:9999; display:flex; justify-content:center; align-items:center; transition:opacity 0.5s;">
+        <div style="text-align:center; color:white;">
+            <div style="font-size:3rem; margin-bottom:1rem;">⛪</div>
+            <div style="width:50px; height:50px; border:5px solid rgba(255,255,255,0.3); border-top-color:white; border-radius:50%; margin:0 auto; animation:spin 1s infinite;"></div>
+            <p style="margin-top:1rem;">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <i class="fas fa-check-circle"></i>
+        <div>
+            <strong id="toast-title">Welcome!</strong>
+            <p id="toast-message">Get in touch with us</p>
+        </div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>የማንቂያ ደወል <span>| Ye mankiya dewol</span></h1>
-                <p class="brand-sub">ምህረተአብ አሰፋ • Mehreteab Asefa</p>
+                <a href="index.html">
+                    <h1>የማንቂያ ደወል</h1>
+                    <p class="brand-sub">Ye mankiya dewol</p>
+                </a>
             </div>
-            <ul class="nav-menu">
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="videos.html">Videos</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
+                <li class="mobile-only">
+                    <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="nav-subscribe">
+                        <i class="fab fa-youtube"></i> Subscribe
+                    </a>
+                </li>
             </ul>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
+
+            <div class="nav-actions">
+                <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="btn-subscribe desktop-only">
+                    <i class="fab fa-youtube"></i> Subscribe
+                    <span class="sub-count">474K</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header">
+    <section class="page-header contact-header">
+        <div class="parallax-bg"></div>
         <div class="container">
-            <h1>Contact Us <span class="amharic">ያግኙን</span></h1>
-            <p>Get in touch with Memeher Mehreteab Asefa</p>
+            <div class="header-content" data-aos="fade-up">
+                <div class="header-badge">
+                    <span class="badge">
+                        <i class="fas fa-headset"></i> Get in Touch
+                    </span>
+                </div>
+                <h1>Contact Us</h1>
+                <p class="amharic">ያግኙን</p>
+                <p class="header-description">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            </div>
         </div>
-    </header>
+        <div class="scroll-indicator" onclick="scrollToNext()">
+            <div class="mouse"><div class="wheel"></div></div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" style="padding: 80px 0;">
+    <section class="contact-section" id="contactSection">
         <div class="container">
             <div class="contact-grid">
-                <!-- Contact Information -->
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>We'd love to hear from you. Whether you have a question, prayer request, or just want to say hello, reach out to us.</p>
+                <!-- Contact Info with Cards -->
+                <div class="contact-info" data-aos="fade-right">
+                    <h2>Get in Touch</h2>
+                    <p class="info-subtitle">Have questions or want to connect? Reach out to us through any of these channels.</p>
 
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fab fa-youtube"></i>
-                            <div class="text">
-                                <strong>YouTube Channel</strong>
-                                <span>@MehreteabAsefa</span>
+                    <div class="info-cards">
+                        <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Email Us</h3>
+                                <a href="mailto:info@yemankiyadewel.org">info@yemankiyadewel.org</a>
+                                <p class="response-time">Response within 24 hours</p>
                             </div>
                         </div>
 
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div class="text">
-                                <strong>Email</strong>
-                                <span>contact@yemankiyadewel.org</span>
+                        <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card-icon youtube-icon">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>YouTube</h3>
+                                <a href="https://www.youtube.com/@MehreteabAsefa" target="_blank">@MehreteabAsefa</a>
+                                <p class="response-time">Subscribe for updates</p>
                             </div>
                         </div>
 
-                        <div class="contact-item">
-                            <i class="fab fa-telegram"></i>
-                            <div class="text">
-                                <strong>Telegram</strong>
-                                <span>@yemankiyadewel</span>
+                        <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card-icon telegram-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Telegram</h3>
+                                <a href="#" target="_blank">t.me/yemankiyadewel</a>
+                                <p class="response-time">Join our community</p>
                             </div>
                         </div>
 
-                        <div class="contact-item">
-                            <i class="fab fa-facebook"></i>
-                            <div class="text">
-                                <strong>Facebook</strong>
-                                <span>/yemankiyadewel</span>
+                        <div class="info-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="card-icon location-icon">
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <div class="text">
-                                <strong>Website</strong>
-                                <span>www.yemankiyadewel.org</span>
+                            <div class="card-content">
+                                <h3>Visit Us</h3>
+                                <p>Addis Ababa, Ethiopia</p>
+                                <p class="response-time">Office hours: Mon-Fri 9AM-5PM</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Office Hours -->
-                    <div style="margin-top: 40px; padding: 20px; background: white; border-radius: 10px;">
-                        <h4 style="color: var(--primary-red); margin-bottom: 15px;">Response Time</h4>
-                        <p><i class="fas fa-check-circle" style="color: var(--primary-gold); margin-right: 10px;"></i> Emails: Within 24-48 hours</p>
-                        <p><i class="fas fa-check-circle" style="color: var(--primary-gold); margin-right: 10px;"></i> Social media: Daily</p>
-                        <p><i class="fas fa-check-circle" style="color: var(--primary-gold); margin-right: 10px;"></i> Prayer requests: Same day</p>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="contact-form">
-                    <h3 style="color: var(--primary-red); margin-bottom: 30px;">Send a Message</h3>
-
-                    <form action="https://formspree.io/f/your-form-id" method="POST">
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="Enter your email">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <select id="subject" name="subject" required style="width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 10px;">
-                                <option value="">Select a topic</option>
-                                <option value="prayer">Prayer Request</option>
-                                <option value="question">Question about teachings</option>
-                                <option value="support">Support / Donation</option>
-                                <option value="feedback">Feedback</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i> Send Message
+                    <!-- Live Chat Button -->
+                    <div class="live-chat" data-aos="fade-up">
+                        <button class="btn btn-primary btn-full" id="liveChatBtn">
+                            <i class="fas fa-comment-dots"></i> Start Live Chat
                         </button>
-                    </form>
+                        <p class="chat-note"><i class="fas fa-circle"></i> Online: Mon-Fri 9AM-5PM EAT</p>
+                    </div>
+                </div>
 
-                    <p style="margin-top: 20px; font-size: 0.9rem; color: #666; text-align: center;">
-                        <i class="fas fa-lock" style="margin-right: 5px;"></i>
-                        Your information is kept private and secure
-                    </p>
+                <!-- Contact Form with Animation -->
+                <div class="contact-form-wrapper" data-aos="fade-left">
+                    <div class="form-card">
+                        <h2>Send a Message</h2>
+                        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                            <div class="form-group floating">
+                                <input type="text" id="name" name="name" required placeholder=" ">
+                                <label for="name">Your Full Name</label>
+                                <i class="fas fa-user input-icon"></i>
+                            </div>
+
+                            <div class="form-group floating">
+                                <input type="email" id="email" name="email" required placeholder=" ">
+                                <label for="email">Your Email Address</label>
+                                <i class="fas fa-envelope input-icon"></i>
+                            </div>
+
+                            <div class="form-group floating">
+                                <input type="text" id="subject" name="subject" required placeholder=" ">
+                                <label for="subject">Subject</label>
+                                <i class="fas fa-tag input-icon"></i>
+                            </div>
+
+                            <div class="form-group floating">
+                                <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                                <label for="message">Your Message</label>
+                                <i class="fas fa-pen input-icon"></i>
+                            </div>
+
+                            <div class="form-options">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#">Privacy Policy</a>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                                <span class="btn-text">Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                                <span class="loading-spinner" style="display: none;"></span>
+                            </button>
+                        </form>
+                        <p class="form-note">We'll get back to you as soon as possible. <i class="fas fa-smile"></i></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Map / Location Section (Optional) -->
-    <section style="background: var(--primary-light); padding: 60px 0;">
+    <!-- Map Section -->
+    <section class="map-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Global Reach</span>
-                <h2 class="section-title">Serving Ethiopians Worldwide</h2>
-                <p style="max-width: 700px; margin: 20px auto 0;">Our community spans across the globe, connecting the Ethiopian diaspora with their faith and heritage.</p>
+            <div class="map-card" data-aos="zoom-in">
+                <div class="map-header">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Find Us</h3>
+                </div>
+                <div class="map-container">
+                    <!-- Replace with actual Google Maps embed -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252234.07041899106!2d38.65659445!3d8.9806034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b37ea4cc09!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div style="text-align: center; margin-top: 40px;">
-                <i class="fas fa-globe-africa" style="font-size: 120px; color: var(--primary-gold); opacity: 0.5;"></i>
-                <div style="display: flex; justify-content: center; gap: 60px; margin-top: 40px; flex-wrap: wrap;">
-                    <div>
-                        <h3 style="color: var(--primary-red); font-size: 2rem;">100+</h3>
-                        <p>Countries</p>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How quickly do you respond to messages?</h3>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div>
-                        <h3 style="color: var(--primary-red); font-size: 2rem;">474K+</h3>
-                        <p>Subscribers</p>
+                    <div class="faq-answer">
+                        <p>We typically respond within 24-48 hours during weekdays. For urgent matters, please indicate "URGENT" in your subject line.</p>
                     </div>
-                    <div>
-                        <h3 style="color: var(--primary-red); font-size: 2rem;">24/7</h3>
-                        <p>Availability</p>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can I request a specific topic for a video?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We welcome topic suggestions. Please include your suggestion in the message, and we'll consider it for future teachings.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Do you offer prayer requests?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We have a prayer team that prays over all requests received. Feel free to share your prayer needs.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section about">
+                <div class="footer-section">
                     <h3>Ye mankiya dewol</h3>
-                    <p>የማንቂያ ደወል - Preserving and promoting Ethiopian Orthodox Tewahdo Church values, heritage, and tradition through the teachings of Mehreteab Asefa.</p>
+                    <p class="footer-amharic">የማንቂያ ደወል</p>
+                    <p class="footer-desc">Promoting Ethiopian Orthodox Tewahdo values and heritage.</p>
                     <div class="social-links">
-                        <a href="https://www.youtube.com/@MehreteabAsefa" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@MehreteabAsefa" target="_blank" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" class="social-link telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
-
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
-                        <li><a href="videos.html"><i class="fas fa-chevron-right"></i> Videos</a></li>
-                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
-                    <h3>Categories</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Teachings</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> History</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Traditions</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Q&amp;A Sessions</a></li>
+                    <h3>Contact</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> info@yemankiyadewel.org</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</li>
                     </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Newsletter</h3>
-                    <p>Get notified about new videos</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2024 Ye mankiya dewol (የማንቂያ ደወል). All rights reserved. | Presented by Mehreteab Asefa</p>
+                <p>&copy; 2024 Ye mankiya dewol. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Hide Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loading-screen').style.display = 'none';
+                }, 500);
+            }, 1000);
+            showToast('Welcome!', 'How can we help you?', 'success');
+        });
+
+        // Toast Notification
+        function showToast(title, message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.className = `toast-notification ${type}`;
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Mobile Menu
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const icon = themeToggle.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        });
+
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll to next section
+        function scrollToNext() {
+            document.getElementById('contactSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Form submission with loading state
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.querySelector('.btn-text').style.opacity = '0';
+            submitBtn.querySelector('.loading-spinner').style.display = 'inline-block';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.querySelector('.btn-text').style.opacity = '1';
+                submitBtn.querySelector('.loading-spinner').style.display = 'none';
+                
+                showToast('Success!', 'Your message has been sent. We\'ll respond soon.', 'success');
+                contactForm.reset();
+            }, 2000);
+        });
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = element.querySelector('i');
+            
+            faqItem.classList.toggle('active');
+            
+            if (faqItem.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                answer.style.maxHeight = '0';
+                icon.style.transform = 'rotate(0)';
+            }
+        }
+
+        // Live Chat Button
+        document.getElementById('liveChatBtn').addEventListener('click', function() {
+            showToast('Live Chat', 'Please email us for now. Live chat coming soon!', 'info');
+        });
+    </script>
 </body>
 </html>
