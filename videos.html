@@ -1,163 +1,626 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Videos - Ye mankiya dewol (የማንቂያ ደወል) - Mehreteab Asefa</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛪</text></svg>">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--primary-color); z-index:9999; display:flex; justify-content:center; align-items:center; transition:opacity 0.5s;">
+        <div style="text-align:center; color:white;">
+            <div style="font-size:3rem; margin-bottom:1rem;">⛪</div>
+            <div style="width:50px; height:50px; border:5px solid rgba(255,255,255,0.3); border-top-color:white; border-radius:50%; margin:0 auto; animation:spin 1s infinite;"></div>
+            <p style="margin-top:1rem;">Loading videos...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <i class="fas fa-check-circle"></i>
+        <div>
+            <strong id="toast-title">Welcome!</strong>
+            <p id="toast-message">Browse our video teachings</p>
+        </div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>የማንቂያ ደወል <span>| Ye mankiya dewol</span></h1>
-                <p class="brand-sub">ምህረተአብ አሰፋ • Mehreteab Asefa</p>
+                <a href="index.html">
+                    <h1>የማንቂያ ደወል</h1>
+                    <p class="brand-sub">Ye mankiya dewol</p>
+                </a>
             </div>
-            <ul class="nav-menu">
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="videos.html" class="active">Videos</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li class="mobile-only">
+                    <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="nav-subscribe">
+                        <i class="fab fa-youtube"></i> Subscribe
+                    </a>
+                </li>
             </ul>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
+
+            <div class="nav-actions">
+                <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="btn-subscribe desktop-only">
+                    <i class="fab fa-youtube"></i> Subscribe
+                    <span class="sub-count">474K</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header">
+    <section class="page-header videos-header">
+        <div class="parallax-bg"></div>
         <div class="container">
-            <h1>Video Teachings <span class="amharic">የቪዲዮ ትምህርቶች</span></h1>
-            <p>Browse our collection of 565+ videos</p>
+            <div class="header-content" data-aos="fade-up">
+                <div class="header-badge">
+                    <span class="badge">
+                        <i class="fas fa-video"></i> 565+ Teachings
+                    </span>
+                </div>
+                <h1>Video Teachings</h1>
+                <p class="amharic">የቪዲዮ ትምህርቶች</p>
+                <div class="header-search">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="videoSearch" placeholder="Search videos...">
+                    </div>
+                </div>
+            </div>
         </div>
-    </header>
+        <div class="scroll-indicator" onclick="scrollToNext()">
+            <div class="mouse"><div class="wheel"></div></div>
+        </div>
+    </section>
 
-    <!-- Video Categories -->
-    <section class="video-categories">
+    <!-- Video Categories with Counter -->
+    <section class="video-categories" id="videos">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Browse by Topic</span>
-                <h2 class="section-title">Video Categories</h2>
+            <div class="categories-header" data-aos="fade-up">
+                <h2>Browse by Topic</h2>
+                <p>Discover teachings organized by category</p>
+            </div>
+            
+            <div class="categories-filter" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active" data-filter="all">
+                    All Videos
+                    <span class="count">565</span>
+                </button>
+                <button class="filter-btn" data-filter="teaching">
+                    <i class="fas fa-bible"></i>
+                    God's Word
+                    <span class="count">245</span>
+                </button>
+                <button class="filter-btn" data-filter="church">
+                    <i class="fas fa-church"></i>
+                    Church Values
+                    <span class="count">180</span>
+                </button>
+                <button class="filter-btn" data-filter="heritage">
+                    <i class="fas fa-landmark"></i>
+                    Heritage & History
+                    <span class="count">140</span>
+                </button>
             </div>
 
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h3>God's Word</h3>
-                    <span class="amharic">የእግዚአብሔር ቃል</span>
-                    <p>In-depth teachings on scripture and Orthodox doctrine</p>
-                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-church"></i>
-                    </div>
-                    <h3>Church Values</h3>
-                    <span class="amharic">የቤተክርስቲያን እሴቶች</span>
-                    <p>Understanding Orthodox traditions and practices</p>
-                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <h3>Heritage & History</h3>
-                    <span class="amharic">ቅርስ እና ታሪክ</span>
-                    <p>Exploring Ethiopia's rich religious history</p>
-                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-hands-praying"></i>
-                    </div>
-                    <h3>Prayers & Worship</h3>
-                    <span class="amharic">ጸሎት እና አምልኮ</span>
-                    <p>Guided prayers and worship teachings</p>
-                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <h3>Q&A Sessions</h3>
-                    <span class="amharic">ጥያቄ እና መልስ</span>
-                    <p>Answers to common questions about faith</p>
-                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3>Holy Days</h3>
-                    <span class="amharic">ቅዱሳን ቀናት</span>
-                    <p>Teachings on Ethiopian Orthodox feasts and fasts</p>
-                    <a href="#" class="category-link">View Videos <i class="fas fa-arrow-right"></i></a>
-                </div>
+            <!-- Results count -->
+            <div class="results-count" data-aos="fade-up">
+                <span id="resultsCount">Showing 6 of 565 videos</span>
             </div>
         </div>
     </section>
 
-    <!-- Latest Videos Grid -->
-    <section style="background: var(--primary-light);">
+    <!-- Video Grid -->
+    <section class="video-grid-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Recent Uploads</span>
-                <h2 class="section-title">Latest Videos</h2>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+            <div class="videos-grid" id="videosGrid">
                 <!-- Video Card 1 -->
-                <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow);">
-                    <div style="position: relative; padding-bottom: 56.25%; background: #ddd;">
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary-red), var(--primary-dark));">
-                            <i class="fas fa-play" style="font-size: 3rem; color: var(--primary-gold);"></i>
+                <div class="video-card" data-category="teaching" data-aos="fade-up">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="Video thumbnail">
+                        <span class="video-duration">45:30</span>
+                        <div class="video-overlay">
+                            <button class="play-btn" onclick="playVideo('VIDEO_ID')">
+                                <i class="fas fa-play"></i>
+                            </button>
                         </div>
                     </div>
-                    <div style="padding: 25px;">
-                        <h3 style="color: var(--primary-red); margin-bottom: 10px;">Sample Video Title</h3>
-                        <p style="margin-bottom: 15px; opacity: 0.8;">Teaching on Ethiopian Orthodox tradition...</p>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span><i class="fas fa-eye" style="color: var(--primary-gold);"></i> 10K views</span>
-                            <span><i class="fas fa-calendar" style="color: var(--primary-gold);"></i> 2 days ago</span>
+                    <div class="video-card-content">
+                        <div class="video-meta">
+                            <span class="video-category">
+                                <i class="fas fa-bible"></i> God's Word
+                            </span>
+                            <span class="video-views">
+                                <i class="fas fa-eye"></i> 12K views
+                            </span>
+                        </div>
+                        <h3>Teaching on Faith - የእምነት ትምህርት</h3>
+                        <p>Memeher Mehreteab Asefa explains the foundations of Orthodox faith.</p>
+                        <div class="video-footer">
+                            <span class="video-date">
+                                <i class="far fa-calendar"></i> 2 days ago
+                            </span>
+                            <a href="#" class="watch-link">
+                                Watch <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Add more video cards as needed -->
+                <!-- Video Card 2 -->
+                <div class="video-card" data-category="church" data-aos="fade-up" data-aos-delay="100">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="Video thumbnail">
+                        <span class="video-duration">38:15</span>
+                        <div class="video-overlay">
+                            <button class="play-btn" onclick="playVideo('VIDEO_ID')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <div class="video-meta">
+                            <span class="video-category">
+                                <i class="fas fa-church"></i> Church Values
+                            </span>
+                            <span class="video-views">
+                                <i class="fas fa-eye"></i> 8.5K views
+                            </span>
+                        </div>
+                        <h3>Church Traditions - የቤተክርስቲያን ልማዶች</h3>
+                        <p>Exploring ancient Ethiopian Orthodox Church traditions and practices.</p>
+                        <div class="video-footer">
+                            <span class="video-date">
+                                <i class="far fa-calendar"></i> 5 days ago
+                            </span>
+                            <a href="#" class="watch-link">
+                                Watch <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Card 3 -->
+                <div class="video-card" data-category="heritage" data-aos="fade-up" data-aos-delay="200">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="Video thumbnail">
+                        <span class="video-duration">52:20</span>
+                        <div class="video-overlay">
+                            <button class="play-btn" onclick="playVideo('VIDEO_ID')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <div class="video-meta">
+                            <span class="video-category">
+                                <i class="fas fa-landmark"></i> Heritage & History
+                            </span>
+                            <span class="video-views">
+                                <i class="fas fa-eye"></i> 15K views
+                            </span>
+                        </div>
+                        <h3>Ethiopian History - የኢትዮጵያ ታሪክ</h3>
+                        <p>The rich history of Orthodox Christianity in Ethiopia from ancient times.</p>
+                        <div class="video-footer">
+                            <span class="video-date">
+                                <i class="far fa-calendar"></i> 1 week ago
+                            </span>
+                            <a href="#" class="watch-link">
+                                Watch <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Card 4 -->
+                <div class="video-card" data-category="teaching" data-aos="fade-up">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="Video thumbnail">
+                        <span class="video-duration">41:10</span>
+                        <div class="video-overlay">
+                            <button class="play-btn" onclick="playVideo('VIDEO_ID')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <div class="video-meta">
+                            <span class="video-category">
+                                <i class="fas fa-bible"></i> God's Word
+                            </span>
+                            <span class="video-views">
+                                <i class="fas fa-eye"></i> 9.2K views
+                            </span>
+                        </div>
+                        <h3>Prayer Life - የጸሎት ሕይወት</h3>
+                        <p>Understanding the importance of prayer in Orthodox tradition.</p>
+                        <div class="video-footer">
+                            <span class="video-date">
+                                <i class="far fa-calendar"></i> 2 weeks ago
+                            </span>
+                            <a href="#" class="watch-link">
+                                Watch <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Card 5 -->
+                <div class="video-card" data-category="church" data-aos="fade-up">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="Video thumbnail">
+                        <span class="video-duration">47:50</span>
+                        <div class="video-overlay">
+                            <button class="play-btn" onclick="playVideo('VIDEO_ID')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <div class="video-meta">
+                            <span class="video-category">
+                                <i class="fas fa-church"></i> Church Values
+                            </span>
+                            <span class="video-views">
+                                <i class="fas fa-eye"></i> 7.8K views
+                            </span>
+                        </div>
+                        <h3>Sacraments - ቅዱሳት ምሥጢራት</h3>
+                        <p>Teaching on the seven sacraments of the Orthodox Church.</p>
+                        <div class="video-footer">
+                            <span class="video-date">
+                                <i class="far fa-calendar"></i> 3 weeks ago
+                            </span>
+                            <a href="#" class="watch-link">
+                                Watch <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Card 6 -->
+                <div class="video-card" data-category="heritage" data-aos="fade-up">
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="Video thumbnail">
+                        <span class="video-duration">56:40</span>
+                        <div class="video-overlay">
+                            <button class="play-btn" onclick="playVideo('VIDEO_ID')">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-card-content">
+                        <div class="video-meta">
+                            <span class="video-category">
+                                <i class="fas fa-landmark"></i> Heritage & History
+                            </span>
+                            <span class="video-views">
+                                <i class="fas fa-eye"></i> 11.3K views
+                            </span>
+                        </div>
+                        <h3>Ancient Churches - ጥንታዊ አብያተ ክርስቲያናት</h3>
+                        <p>Exploring Ethiopia's ancient rock-hewn churches and monasteries.</p>
+                        <div class="video-footer">
+                            <span class="video-date">
+                                <i class="far fa-calendar"></i> 1 month ago
+                            </span>
+                            <a href="#" class="watch-link">
+                                Watch <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more" data-aos="fade-up">
+                <button class="btn btn-outline" id="loadMoreBtn">
+                    <i class="fas fa-sync-alt"></i> Load More Videos
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Subscribe CTA -->
-    <section class="subscribe-section">
+    <!-- Featured Playlists -->
+    <section class="playlists">
         <div class="container">
-            <div class="subscribe-box">
-                <i class="fab fa-youtube"></i>
-                <h2>Subscribe for New Teachings</h2>
-                <p>Get notified when new videos are uploaded</p>
-                <a href="https://www.youtube.com/@MehreteabAsefa?sub_confirmation=1" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-youtube"></i> Subscribe Now
+            <h2 class="section-title" data-aos="fade-up">Featured Playlists</h2>
+            <div class="playlists-grid">
+                <div class="playlist-card" data-aos="fade-right">
+                    <div class="playlist-image">
+                        <i class="fas fa-list"></i>
+                        <span class="video-count">45 videos</span>
+                    </div>
+                    <div class="playlist-content">
+                        <h3>Foundations of Faith</h3>
+                        <p>Complete series on Orthodox Christian beliefs</p>
+                        <a href="#" class="btn btn-small">View Playlist</a>
+                    </div>
+                </div>
+                <div class="playlist-card" data-aos="fade-up">
+                    <div class="playlist-image">
+                        <i class="fas fa-list"></i>
+                        <span class="video-count">32 videos</span>
+                    </div>
+                    <div class="playlist-content">
+                        <h3>Church History</h3>
+                        <p>Journey through Orthodox Church history</p>
+                        <a href="#" class="btn btn-small">View Playlist</a>
+                    </div>
+                </div>
+                <div class="playlist-card" data-aos="fade-left">
+                    <div class="playlist-image">
+                        <i class="fas fa-list"></i>
+                        <span class="video-count">28 videos</span>
+                    </div>
+                    <div class="playlist-content">
+                        <h3>Daily Devotionals</h3>
+                        <p>Short daily teachings for spiritual growth</p>
+                        <a href="#" class="btn btn-small">View Playlist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Channel CTA -->
+    <section class="channel-cta">
+        <div class="container">
+            <div class="channel-box" data-aos="zoom-in">
+                <div class="channel-icon">
+                    <i class="fab fa-youtube"></i>
+                    <span class="live-badge">LIVE</span>
+                </div>
+                <h2>Visit Our YouTube Channel</h2>
+                <p>Watch all 565+ videos and subscribe for daily teachings</p>
+                <div class="channel-stats">
+                    <span><i class="fas fa-users"></i> 474K subscribers</span>
+                    <span><i class="fas fa-video"></i> 565+ videos</span>
+                    <span><i class="fas fa-clock"></i> Daily uploads</span>
+                </div>
+                <a href="https://www.youtube.com/@MehreteabAsefa" target="_blank" class="btn btn-primary btn-large">
+                    <i class="fab fa-youtube"></i> Go to Channel
                 </a>
             </div>
         </div>
     </section>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeVideoModal()">&times;</span>
+            <div class="modal-video-container">
+                <div id="modal-player"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
-        <!-- Same footer as other pages -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ye mankiya dewol</h3>
+                    <p class="footer-amharic">የማንቂያ ደወል</p>
+                    <p class="footer-desc">Promoting Ethiopian Orthodox Tewahdo values and heritage.</p>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@MehreteabAsefa" target="_blank" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" class="social-link telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> info@yemankiyadewel.org</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ye mankiya dewol. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Hide Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loading-screen').style.display = 'none';
+                }, 500);
+            }, 1000);
+            showToast('Welcome!', 'Browse our video library', 'success');
+        });
+
+        // Toast Notification
+        function showToast(title, message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.className = `toast-notification ${type}`;
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Mobile Menu
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const icon = themeToggle.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        });
+
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll to next section
+        function scrollToNext() {
+            document.getElementById('videos').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Video Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const videoCards = document.querySelectorAll('.video-card');
+        const resultsCount = document.getElementById('resultsCount');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+                let visibleCount = 0;
+
+                videoCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                resultsCount.textContent = `Showing ${visibleCount} of 565 videos`;
+            });
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('videoSearch');
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            videoCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            resultsCount.textContent = `Showing ${visibleCount} of 565 videos`;
+        });
+
+        // Load More Videos
+        let videoCount = 6;
+        document.getElementById('loadMoreBtn').addEventListener('click', function() {
+            // Simulate loading more videos
+            showToast('Info', 'More videos coming soon!', 'info');
+        });
+
+        // Video Modal
+        function playVideo(videoId) {
+            const modal = document.getElementById('videoModal');
+            modal.style.display = 'block';
+            
+            // Create YouTube player
+            document.getElementById('modal-player').innerHTML = `
+                <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            `;
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            modal.style.display = 'none';
+            document.getElementById('modal-player').innerHTML = '';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target == modal) {
+                closeVideoModal();
+            }
+        }
+    </script>
 </body>
 </html>
